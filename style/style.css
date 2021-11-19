@@ -1,8 +1,20 @@
-/* FONTS*/
+/*
+# FONTS
+*/
 
-/* VARIABLES*/
+/*
+# VARIABLES
+*/
 
-/* GENERIC */
+:root {
+  /* Colors */
+  
+  /* whitespaces */
+}
+
+/*
+# GENERIC 
+*/
 
 html {
   font-size: 16px;
@@ -27,7 +39,9 @@ html {
   text-shadow: none;
 }
 
-/* ELEMENTS */
+/*
+# ELEMENTS 
+*/
 
 img {
   max-width: 100%;
@@ -147,10 +161,27 @@ select {
   width: 100%;
 }
 
-/* OBJECTS */
+/*
+# OBJECTS 
+*/
 
-/* COMPONENTS */
+/*
+# COMPONENTS
+*/
 
-/* UTILITIES */
+/* Rocket */
+.c-rockets {
+  list-style: none;
+}
 
-/* MEDIA */
+.c-rocket_name {
+  
+}
+
+/*
+# UTILITIES 
+*/
+
+/*
+# MEDIA 
+*/
