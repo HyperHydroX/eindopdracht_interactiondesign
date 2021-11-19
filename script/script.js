@@ -3,15 +3,18 @@ const get_api_data = (url) => fetch(url).then((r) => r.json());
 
 const show_rockets = (rockets_data) => {
     // Listeners
-    const $rocket_name = document.querySelector(".js-rocket_name");
-    const rockets = document.querySelector(".js-rockets");
+    const rockets = document.querySelectorAll(".js-rockets");
+    const $rocket_image = document.querySelector(".js-rocket_image");
     console.log(rockets)
-    rockets_data.forEach(rocket_data => {
-        rockets.innerHTML += `<li class="c-rocket_name">${rocket_data.name}</li>`;
+
+    rockets_data.forEach($rocket_data => {
+        // $rockets.innerHTML += `<li class="c-rocket_name">${rocket_data.name}</li>`;
+        rockets.forEach($rocket => {
+            $rocket.textContent += $rocket_data.name
+        });
+        $rocket_image.src = $rocket_data.flickr_images[1];
     });
-    // rockets.forEach(rocket => {
-    //     $rocket_name.textContent = rocket.name;
-    // });
+   
 };
 
 const get_api = async () => {
