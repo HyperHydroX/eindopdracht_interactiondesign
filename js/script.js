@@ -1,38 +1,78 @@
-const get_api_data = (url) => fetch(url).then((r) => r.json());
+{
+    const get_api_data = (url) => fetch(url).then((r) => r.json());
+    let type_rocket = 1;
 
+    const show_rocket = (api_data) => {
+        // DOM content
+        const $rocket = document.querySelector(".js-rocket");
+        const $rocket_image = document.querySelector(".js-rocket__image");
+        const $menu = document.querySelector(".js-menu");
+        console.log($menu);
 
-const show_rocket = (api_data) => {
-    // Listeners
-    const $rocket = document.querySelector(".js-rocket");
-    const $rocket_image = document.querySelector(".js-rocket_image");
+        //nav
+        api_data.forEach(data => {
+            $menu.innerHTML += `
+            <li class="c-menu__item">
+                <a href="#" class="js-link c-menu__item--link">${data.name}</a>
+            </li>`;
+        });
 
-    console.log(api_data[1].flickr_images[0])
-    $rocket_image.src = api_data[0].flickr_images[0];
-    $rocket_image.alt = "Falcon 1 rocket";
-    
-    $rocket.innerHTML = `
-        <li>Name: ${api_data[0].name}</li>
-        <li>Country: ${api_data[0].country}</li>
-        <li>Cost per launch: &euro;${api_data[0].cost_per_launch}</li>
-        <li>Height: ${api_data[0].height.meters}m</li>
-        <li>Diameters: ${api_data[0].diameter.meters}</li>
-        <li>Engine type: ${api_data[0].engines.type}</li>
-        <li>First flight: ${api_data[0].first_flight}</li>
-        <li>Mass: ${api_data[0].mass.kg}kg</li>
-    `;
-};
+        //Images
+        $rocket_image.src = api_data[type_rocket].flickr_images[0];
+        $rocket_image.alt = "Falcon type_rocket rocket";
+        
+        //Rocket data
+        $rocket.innerHTML = `
+            <li>Name: ${api_data[type_rocket].name}</li>
+            <li>Country: ${api_data[type_rocket].country}</li>
+            <li>Cost per launch: &euro;${api_data[type_rocket].cost_per_launch}</li>
+            <li>Height: ${api_data[type_rocket].height.meters}m</li>
+            <li>Diameters: ${api_data[type_rocket].diameter.meters}</li>
+            <li>Engine type: ${api_data[type_rocket].engines.type}</li>
+            <li>First flight: ${api_data[type_rocket].first_flight}</li>
+            <li>Mass: ${api_data[type_rocket].mass.kg}kg</li> `;
+        
+        rocket_type_listener();
+    };
 
-const get_api = async () => {
-    //url
-    const endpoint = "https://api.spacexdata.com/v4/rockets";
-    console.log(`Endpoint ${endpoint}`);
-    // data ophalen
-    const rocket_data = await get_api_data(endpoint);
-    console.log(rocket_data);
+    const rocket_type_listener = () => {
+        const item_links = document.querySelectorAll(".js-link");
+        console.log(item_links)
+        item_links.forEach($item_link  => {
+            $item_link.addEventListener("click", () => {
+                if($item_link.textContent == "Falcon 1") {
+                    console.log("clicked falcon 1")
+                    type_rocket = 0;
+                } else if ($item_link.textContent == "Falcon 9") {
+                    console.log("clicked falcon 9")
+                    type_rocket = 1;
+                } else if ($item_link.textContent == "Falcon Heavy") {
+                    console.log("clicked falcon heavy")
+                    type_rocket = 2;
+                } else if ($item_link.textContent == "Starship") {
+                    console.log("clicked starship")
+                    type_rocket = 3;
+                }
+            });
+        })
+        
+    };
 
-    show_rocket(rocket_data);
-};
+    const get_api = async () => {
+        //url
+        const endpoint = "https://api.spacexdata.com/v4/rockets";
+        console.log(`Endpoint ${endpoint}`);
+        // data ophalen
+        const rocket_data = await get_api_data(endpoint);
+        console.log(rocket_data);
 
-document.addEventListener("DOMContentLoaded", () => {
-    get_api();
-});
+        show_rocket(rocket_data);
+    };
+
+    const innit = () => {
+        get_api();
+        // rocket_type_listener();
+    };
+        
+    innit();
+}

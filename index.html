@@ -6,15 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>SpaceX</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>SpaceX rockets</title>
   </head>
   <body>
-    <div class="js-rocket_images c-rockets">
-      <img class="js-rocket_image c-rocket__image" src="" alt="" />
-      <ul class="js-rocket c-rocket_list">
+    <header>
+      <h1 class="c-title">SpaceX rockets</h1>
+      <!-- Maak een nav waarmee je kan kiezen welke racket je wilt zien -->
+      <nav class="c-nav">
+        <ul class="js-menu c-menu">
+          <!-- <li class="c-menu__item">
+            <a href="#" class="c-menu__item--link"></a>
+          </li>
+          <li class="c-menu__item">
+            <a href="#" class="c-menu__item--link"></a>
+          </li>
+          <li class="c-menu__item">
+            <a href="#" class="c-menu__item--link"></a>
+          </li>
+          <li class="c-menu__item">
+            <a href="#" class="c-menu__item--link"></a>
+          </li> -->
+        </ul>
+      </nav>
+    </header>
+    <!-- Toon de data van de geselecteerde racket in een article / dashboard GEBRUIK GRID / JS-chart-->
+    <article class="js-rocket_images c-rockets">
+      <img class="js-rocket__image c-rocket__image" src="" alt="" />
+      <ul class="js-rocket c-rocket__list">
         <!-- <li class="c-rocket_item"></li> -->
       </ul>
-    </div>
+    </article>
     <script src="./js/script.js"></script>
   </body>
 </html>
