@@ -1,0 +1,188 @@
+/*
+# FONTS
+*/
+
+/*
+# VARIABLES
+*/
+
+:root {
+  /* Colors */
+
+  /* whitespaces */
+  --global-baseline: 16px;
+}
+
+/*
+# GENERIC 
+*/
+
+html {
+  font-size: 62.5%;
+  line-height: 1.5;
+  font-family: Helvetica, arial, sans-serif;
+  box-sizing: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: mediumslateblue;
+  color: white;
+  text-shadow: none;
+}
+
+/*
+# ELEMENTS 
+*/
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3.6rem;
+  line-height: calc(var(--global-baseline) * 10);
+  margin: 0 0 var(--global-whitespace-md);
+}
+
+h2 {
+  font-size: 2.8rem;
+  font-weight: normal;
+  line-height: calc(var(--global-baseline) * 8);
+  margin: 0 0 var(--global-whitespace-lg);
+}
+
+h3 {
+  font-size: 2.6rem;
+  line-height: calc(var(--global-baseline) * 6);
+  margin: 0 0 var(--global-whitespace-md);
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: calc(var(--global-baseline) * 5);
+  margin: 0 0 var(--global-whitespace-md);
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin: 0 0 var(--global-whitespace-md);
+}
+
+ul,
+ol {
+  padding-left: 24px;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 23px;
+  line-height: 32px;
+  margin: 0 0 24px;
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: LightGrey;
+  margin: 0 0 24px;
+}
+
+a {
+  transition: all 0.1s;
+  color: mediumslateblue;
+  outline-color: mediumslateblue;
+  outline-width: medium;
+  outline-offset: 2px;
+}
+
+a:visited,
+a:active {
+  color: mediumslateblue;
+}
+
+a:hover,
+a:focus {
+  color: slateblue;
+}
+
+label,
+input {
+  display: block;
+}
+
+select {
+  width: 100%;
+}
+
+/*
+# OBJECTS 
+*/
+
+/*
+# COMPONENTS
+*/
+
+/* Rocket */
+.c-rockets {
+  list-style: none;
+}
+
+.c-rocket__name {
+}
+
+.c-rocket__image {
+  max-height: 400px;
+  max-width: 400px;
+}
+
+/*
+# UTILITIES 
+*/
+
+/*
+# MEDIA 
+*/
