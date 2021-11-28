@@ -11,6 +11,9 @@
 
   /* Whitespace */
   --global-baseline: 16px;
+
+  /* Tranistion */
+  --global-transition: 0.3s ease;
 }
 
 /*
@@ -172,19 +175,108 @@ select {
 \*------------------------------------*/
 
 /*
+    Component: Header
+    ---
+    website main header
+*/
+
+.c-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*
     Component: Menu
     ---
     website main menu
 */
+.c-nav {
+  z-index: 2;
+}
 
 .c-menu {
+  margin-bottom: 24px;
   padding: 0;
-  display: flex;
-  justify-content: center;
+  transition: var(--global-transition);
+  display: none;
 }
 
 .c-menu__item {
-  padding: 0 var(--global-baseline);
+  padding: 16px var(--global-baseline);
+}
+
+.c-menu__item:hover {
+  font-weight: bold;
+}
+
+.c-menu__item--link {
+  color: black;
+}
+
+.c-menu--toggle {
+  width: 35px;
+  height: 30px;
+  margin: 30px 0 20px 20px;
+  cursor: pointer;
+}
+
+.c-menu__background {
+  z-index: 1;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, #e94498, #b81568);
+  border-radius: 50%;
+  transition: var(--global-transition);
+}
+
+.c-menu__background,
+.c-nav {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.c-hamburger {
+  height: 5px;
+  width: 100%;
+  display: block;
+  background-color: #b81568;
+  border-radius: 5px;
+  transition: var(--global-transition);
+}
+
+#bar-1 {
+  transform: translateY(-4px);
+}
+
+#bar-3 {
+  transform: translateY(4px);
+}
+
+.u-change--background {
+  width: 550px;
+  height: 540px;
+  transform: translate(-60%, -30%);
+}
+
+.u-change {
+  display: block;
+}
+
+.u-change .c-hamburger {
+  background-color: #ffffff;
+}
+
+.u-change #bar-1 {
+  transform: translateY(4px) rotateZ(45deg);
+}
+
+.u-change #bar-2 {
+  opacity: 0;
+}
+
+.u-change #bar-3 {
+  transform: translateY(-6px) rotateZ(-45deg);
 }
 
 /*
@@ -192,8 +284,8 @@ select {
     ---
     show rocket data
 */
-.c-rockets {
-  list-style: none;
+
+.c-rocket {
   height: 100vh;
 }
 
@@ -201,16 +293,17 @@ select {
   text-align: center;
 }
 
-.c-rocket__name {
-}
-
 .c-rocket__image {
   max-height: 400px;
   max-width: 400px;
+  margin-bottom: 24px;
 }
 
-.c-rocket__list {
+.c-rocket-list {
   font-size: 1.2rem;
+}
+
+.c-rocket-list__item {
 }
 
 /*

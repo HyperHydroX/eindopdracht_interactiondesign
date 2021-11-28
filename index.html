@@ -6,11 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="apple-touch-icon" sizes="180x180" href=" /apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="./assets/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link
@@ -20,10 +38,15 @@
     <title>SpaceX rockets</title>
   </head>
   <body>
-    <header>
-      <h1 class="c-title">SpaceX rockets</h1>
+    <header class="c-header">
       <!-- Maak een nav waarmee je kan kiezen welke racket je wilt zien -->
       <nav class="c-nav">
+        <div class="js-menu--toggle c-menu--toggle">
+          <!-- Hamburger icon -->
+          <span id="bar-1" class="c-hamburger"></span>
+          <span id="bar-2" class="c-hamburger"></span>
+          <span id="bar-3" class="c-hamburger"></span>
+        </div>
         <ul class="js-menu c-menu">
           <!-- <li class="c-menu__item">
             <a href="#" class="c-menu__item--link"></a>
@@ -39,14 +62,17 @@
           </li> -->
         </ul>
       </nav>
+      <div class="js-menu__background c-menu__background"></div>
+      <h1 class="c-title">SpaceX rockets</h1>
     </header>
     <!-- Toon de data van de geselecteerde racket in een article / dashboard GEBRUIK GRID / JS-chart-->
-    <article class="js-rocket_images c-rockets">
+    <article class="js-rocket_images c-rocket">
       <img class="js-rocket__image c-rocket__image" src="" alt="" />
-      <ul class="js-rocket c-rocket__list">
-        <!-- <li class="c-rocket_item"></li> -->
+      <ul class="js-rocket c-rocket-list">
+        <!-- <li class="c-rocket-list__item"></li> -->
       </ul>
     </article>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>

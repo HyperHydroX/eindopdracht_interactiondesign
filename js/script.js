@@ -1,6 +1,13 @@
 {
     const get_api_data = (url) => fetch(url).then((r) => r.json());
-    let type_rocket = 0;
+    let rocket_type = 3;
+
+    const on_click_menu =() => {
+        document.querySelector(".js-menu--toggle").classList.toggle("u-change");
+        document.querySelector(".js-menu").classList.toggle("u-change");
+        
+        document.querySelector(".js-menu__background").classList.toggle("u-change--background");
+    };
 
     const show_rocket_menu = (api_data) => {
         const $menu = document.querySelector(".js-menu");
@@ -22,7 +29,7 @@
         </li>`;
         
         rocket_type_listener()
-    }
+    };
 
     const show_rocket = (api_data) => {
         // DOM content
@@ -40,24 +47,24 @@
         // });
 
         //Images
-        $rocket_image.src = api_data[type_rocket].flickr_images[0];
-        $rocket_image.alt = "Falcon 1 rocket image";
+        $rocket_image.src = api_data[rocket_type].flickr_images[0];
+        $rocket_image.alt = `${api_data[rocket_type].name} rocket image` ;
         
         //Rocket data
         $rocket.innerHTML = `
-            <li>Name: ${api_data[type_rocket].name}</li>
-            <li>Country: ${api_data[type_rocket].country}</li>
-            <li>Cost per launch: &euro;${api_data[type_rocket].cost_per_launch}</li>
-            <li>Height: ${api_data[type_rocket].height.meters}m</li>
-            <li>Diameters: ${api_data[type_rocket].diameter.meters}</li>
-            <li>Engine type: ${api_data[type_rocket].engines.type}</li>
-            <li>First flight: ${api_data[type_rocket].first_flight}</li>
-            <li>Mass: ${api_data[type_rocket].mass.kg}kg</li> `;
+            <li class="c-rocket-list__item">Name: ${api_data[rocket_type].name}</li>
+            <li class="c-rocket-list__item">Country: ${api_data[rocket_type].country}</li>
+            <li class="c-rocket-list__item">Cost per launch: &euro;${api_data[rocket_type].cost_per_launch}</li>
+            <li class="c-rocket-list__item">Height: ${api_data[rocket_type].height.meters}m</li>
+            <li class="c-rocket-list__item">Diameters: ${api_data[rocket_type].diameter.meters}</li>
+            <li class="c-rocket-list__item">Engine type: ${api_data[rocket_type].engines.type}</li>
+            <li class="c-rocket-list__item">First flight: ${api_data[rocket_type].first_flight}</li>
+            <li class="c-rocket-list__item">Mass: ${api_data[rocket_type].mass.kg}kg</li> `;
     };
 
     const change_rocket = () => {
 
-    }
+    };
 
     const rocket_type_listener = () => {
         const item_links = document.querySelectorAll(".js-link");
@@ -66,16 +73,16 @@
             $item_link.addEventListener("click", () => {
                 if($item_link.textContent == "Falcon 1") {
                     console.log("clicked falcon 1")
-                    type_rocket = 0;
+                    rocket_type = 0;
                 } else if ($item_link.textContent == "Falcon 9") {
                     console.log("clicked falcon 9")
-                    type_rocket = 1;
+                    rocket_type = 1;
                 } else if ($item_link.textContent == "Falcon Heavy") {
                     console.log("clicked falcon heavy")
-                    type_rocket = 2;
+                    rocket_type = 2;
                 } else if ($item_link.textContent == "Starship") {
                     console.log("clicked starship")
-                    type_rocket = 3;
+                    rocket_type = 3;
                 }
                 get_api();
             });
@@ -97,6 +104,9 @@
 
     const innit = () => {
         get_api();
+        const toggle_menu = document.querySelector(".js-menu--toggle");
+        toggle_menu.addEventListener('click', on_click_menu);
+        
         // show_rocket(get_api())
     };
         
