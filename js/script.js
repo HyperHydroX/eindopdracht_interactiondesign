@@ -1,25 +1,47 @@
 {
     const get_api_data = (url) => fetch(url).then((r) => r.json());
-    let type_rocket = 1;
+    let type_rocket = 0;
+
+    const show_rocket_menu = (api_data) => {
+        const $menu = document.querySelector(".js-menu");
+        console.log($menu);
+
+        //nav
+        $menu.innerHTML = `
+        <li class="c-menu__item">
+            <a href="#" class="js-link c-menu__item--link">${api_data[0].name}</a>
+        </li>
+        <li class="c-menu__item">
+            <a href="#" class="js-link c-menu__item--link">${api_data[1].name}</a>
+        </li>
+        <li class="c-menu__item">
+            <a href="#" class="js-link c-menu__item--link">${api_data[2].name}</a>
+        </li>
+        <li class="c-menu__item">
+            <a href="#" class="js-link c-menu__item--link">${api_data[3].name}</a>
+        </li>`;
+        
+        rocket_type_listener()
+    }
 
     const show_rocket = (api_data) => {
         // DOM content
         const $rocket = document.querySelector(".js-rocket");
         const $rocket_image = document.querySelector(".js-rocket__image");
-        const $menu = document.querySelector(".js-menu");
-        console.log($menu);
+        // const $menu = document.querySelector(".js-menu");
+        // console.log($menu);
 
-        //nav
-        api_data.forEach(data => {
-            $menu.innerHTML += `
-            <li class="c-menu__item">
-                <a href="#" class="js-link c-menu__item--link">${data.name}</a>
-            </li>`;
-        });
+        // //nav
+        // api_data.forEach(data => {
+        //     $menu.innerHTML += `
+        //     <li class="c-menu__item">
+        //         <a href="#" class="js-link c-menu__item--link">${data.name}</a>
+        //     </li>`;
+        // });
 
         //Images
         $rocket_image.src = api_data[type_rocket].flickr_images[0];
-        $rocket_image.alt = "Falcon type_rocket rocket";
+        $rocket_image.alt = "Falcon 1 rocket image";
         
         //Rocket data
         $rocket.innerHTML = `
@@ -31,9 +53,11 @@
             <li>Engine type: ${api_data[type_rocket].engines.type}</li>
             <li>First flight: ${api_data[type_rocket].first_flight}</li>
             <li>Mass: ${api_data[type_rocket].mass.kg}kg</li> `;
-        
-        rocket_type_listener();
     };
+
+    const change_rocket = () => {
+
+    }
 
     const rocket_type_listener = () => {
         const item_links = document.querySelectorAll(".js-link");
@@ -53,6 +77,7 @@
                     console.log("clicked starship")
                     type_rocket = 3;
                 }
+                get_api();
             });
         })
         
@@ -66,12 +91,13 @@
         const rocket_data = await get_api_data(endpoint);
         console.log(rocket_data);
 
+        show_rocket_menu(rocket_data);
         show_rocket(rocket_data);
     };
 
     const innit = () => {
         get_api();
-        // rocket_type_listener();
+        // show_rocket(get_api())
     };
         
     innit();

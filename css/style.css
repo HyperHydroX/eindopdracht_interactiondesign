@@ -184,7 +184,7 @@ select {
 }
 
 .c-menu__item {
-  padding: var(--global-baseline);
+  padding: 0 var(--global-baseline);
 }
 
 /*
@@ -195,9 +195,6 @@ select {
 .c-rockets {
   list-style: none;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .c-title {
@@ -223,3 +220,23 @@ select {
 /*
 # MEDIA 
 */
+
+/* Small devices (landscape phones, 576px and up) */
+/* @Media (min-width: 576px) */
+@media screen and (min-width: 57.6rem) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+/* @Media (min-width: 768px) */
+@media screen and (min-width: 76.8rem) {
+}
+
+/* Large devices (landscape tablets, desktops, 992px and up) */
+/* @Media (min-width: 992px) */
+@media screen and (min-width: 99.2rem) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+/* @Media (min-width: 1200px) */
+@media screen and (min-width: 120rem) {
+}
