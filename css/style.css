@@ -191,8 +191,6 @@ select {
 */
 
 .c-header {
-  display: flex;
-  justify-content: space-between;
 }
 
 /*
@@ -201,11 +199,10 @@ select {
     website main menu
 */
 .c-nav {
-  position: inherit;
-  height: 50px;
-  width: 50px;
-  top: 0;
-  left: 0;
+  position: fixed;
+  margin: 2em;
+  bottom: 50px;
+  right: 50px;
   z-index: 1;
 }
 
