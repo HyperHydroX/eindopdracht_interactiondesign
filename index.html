@@ -38,35 +38,41 @@
     <title>SpaceX rockets</title>
   </head>
   <body>
+    <nav class="c-nav">
+      <input type="checkbox" class="c-menu--toggler" />
+      <!-- Hamburger icon -->
+      <div class="c-hamburger">
+        <span></span>
+      </div>
+      <div class="c-menu">
+        <div>
+          <div>
+            <ul class="js-menu">
+              <!-- <li class="c-menu__item">
+                <a href="#" class="c-menu__item--link"></a>
+                </li>
+                <li class="c-menu__item">
+                  <a href="#" class="c-menu__item--link"></a>
+                </li>
+                <li class="c-menu__item">
+                  <a href="#" class="c-menu__item--link"></a>
+                </li>
+                <li class="c-menu__item">
+                  <a href="#" class="c-menu__item--link"></a>
+                </li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
     <header class="c-header">
       <!-- Maak een nav waarmee je kan kiezen welke racket je wilt zien -->
-      <nav class="c-nav">
-        <div class="js-menu--toggle c-menu--toggle">
-          <!-- Hamburger icon -->
-          <span id="bar-1" class="c-hamburger"></span>
-          <span id="bar-2" class="c-hamburger"></span>
-          <span id="bar-3" class="c-hamburger"></span>
-        </div>
-        <ul class="js-menu c-menu">
-          <!-- <li class="c-menu__item">
-            <a href="#" class="c-menu__item--link"></a>
-          </li>
-          <li class="c-menu__item">
-            <a href="#" class="c-menu__item--link"></a>
-          </li>
-          <li class="c-menu__item">
-            <a href="#" class="c-menu__item--link"></a>
-          </li>
-          <li class="c-menu__item">
-            <a href="#" class="c-menu__item--link"></a>
-          </li> -->
-        </ul>
-      </nav>
-      <div class="js-menu__background c-menu__background"></div>
       <h1 class="c-title">SpaceX rockets</h1>
+      <div class="js-menu__background c-menu__background"></div>
     </header>
     <!-- Toon de data van de geselecteerde racket in een article / dashboard GEBRUIK GRID / JS-chart-->
     <article class="js-rocket_images c-rocket">
+      <h2 class="o-hidden">Rocket info</h2>
       <img class="js-rocket__image c-rocket__image" src="" alt="" />
       <ul class="js-rocket c-rocket-list">
         <!-- <li class="c-rocket-list__item"></li> -->

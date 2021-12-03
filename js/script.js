@@ -2,13 +2,6 @@
     const get_api_data = (url) => fetch(url).then((r) => r.json());
     let rocket_type = 3;
 
-    const on_click_menu =() => {
-        document.querySelector(".js-menu--toggle").classList.toggle("u-change");
-        document.querySelector(".js-menu").classList.toggle("u-change");
-        
-        document.querySelector(".js-menu__background").classList.toggle("u-change--background");
-    };
-
     const show_rocket_menu = (api_data) => {
         const $menu = document.querySelector(".js-menu");
         console.log($menu);
@@ -68,6 +61,7 @@
 
     const rocket_type_listener = () => {
         const item_links = document.querySelectorAll(".js-link");
+        const checkbox = document.querySelector(".c-menu--toggler")
         console.log(item_links)
         item_links.forEach($item_link  => {
             $item_link.addEventListener("click", () => {
@@ -85,6 +79,8 @@
                     rocket_type = 3;
                 }
                 get_api();
+                
+                checkbox.checked = false;
             });
         })
         
@@ -104,8 +100,6 @@
 
     const innit = () => {
         get_api();
-        const toggle_menu = document.querySelector(".js-menu--toggle");
-        toggle_menu.addEventListener('click', on_click_menu);
         
         // show_rocket(get_api())
     };
