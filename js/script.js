@@ -45,14 +45,71 @@
         
         //Rocket data
         $rocket.innerHTML = `
-            <li class="c-rocket-list__item">Name: ${api_data[rocket_type].name}</li>
-            <li class="c-rocket-list__item">Country: ${api_data[rocket_type].country}</li>
-            <li class="c-rocket-list__item">Cost per launch: &euro;${api_data[rocket_type].cost_per_launch}</li>
-            <li class="c-rocket-list__item">Height: ${api_data[rocket_type].height.meters}m</li>
-            <li class="c-rocket-list__item">Diameters: ${api_data[rocket_type].diameter.meters}</li>
-            <li class="c-rocket-list__item">Engine type: ${api_data[rocket_type].engines.type}</li>
-            <li class="c-rocket-list__item">First flight: ${api_data[rocket_type].first_flight}</li>
-            <li class="c-rocket-list__item">Mass: ${api_data[rocket_type].mass.kg}kg</li> `;
+        <li class="c-rocket-list__item o-layout">
+          <div class="o-layout__item u-1-of-2-bp2">
+            <h3 class="c-rocket__item--title">Name</h3>
+          </div>
+          <div class="o-layout__item u-1-of-2-bp2">
+            <p class="c-rocket__item--info">${api_data[rocket_type].name}</p>
+          </div>
+        </li>
+        <li class="c-rocket-list__item o-layout">
+          <div class="o-layout__item u-1-of-2-bp2">
+            <h3 class="c-rocket__item--title">Country</h3>
+          </div>
+          <div class="o-layout__item u-1-of-2-bp2">
+            <p class="c-rocket__item--info">${api_data[rocket_type].country}</p>
+          </div>
+        </li>
+        <li class="c-rocket-list__item o-layout">
+          <div class="o-layout__item u-1-of-2-bp2">
+            <h3 class="c-rocket__item--title">Cost per launch</h3>
+          </div>
+          <div class="o-layout__item u-1-of-2-bp2">
+            <p class="c-rocket__item--info">&euro;${api_data[rocket_type].cost_per_launch}</p>
+          </div>
+        </li>
+        <li class="c-rocket-list__item o-layout">
+          <div class="o-layout__item u-1-of-2-bp2">
+            <h3 class="c-rocket__item--title">Height</h3>
+          </div>
+          <div class="o-layout__item u-1-of-2-bp2">
+            <p class="c-rocket__item--info">${api_data[rocket_type].height.meters}m</p>
+          </div>
+        </li>
+        <li class="c-rocket-list__item o-layout">
+          <div class="o-layout__item u-1-of-2-bp2">
+             <h3 class="c-rocket__item--title">Diameters</h3>
+          </div>
+          <div class="o-layout__item u-1-of-2-bp2">
+            <p class="c-rocket__item--info">${api_data[rocket_type].diameter.meters}</p>
+          </div>
+        </li>
+        <li class="c-rocket-list__item o-layout">
+          <div class="o-layout__item u-1-of-2-bp2">
+            <h3 class="c-rocket__item--title">Engine type</h3>
+          </div>
+          <div class="o-layout__item u-1-of-2-bp2">
+            <p class="c-rocket__item--info">${api_data[rocket_type].engines.type}</p>
+          </div>
+        </li>
+        <li class="c-rocket-list__item o-layout">
+          <div class="o-layout__item u-1-of-2-bp2">
+            <h3 class="c-rocket__item--title">First flight</h3>
+          </div>
+          <div class="o-layout__item u-1-of-2-bp2">
+            <p class="c-rocket__item--info">${api_data[rocket_type].first_flight}</p>
+          </div>
+        </li>
+        <li class="c-rocket-list__item o-layout">
+          <div class="o-layout__item u-1-of-2-bp2">
+            <h3 class="c-rocket__item--title">Mass</h3>
+          </div>
+          <div class="o-layout__item u-1-of-2-bp2">
+            <p class="c-rocket__item--info">${api_data[rocket_type].mass.kg}kg</p>
+          </div>
+        </li>
+         `;
     };
 
     const change_rocket = () => {

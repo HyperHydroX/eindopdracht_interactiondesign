@@ -114,7 +114,7 @@ li ol {
 
 blockquote {
   font-style: normal;
-  font-size: 23px;
+  font-size: 2.4rem;
   line-height: 32px;
   margin: 0 0 24px;
 }
@@ -126,7 +126,7 @@ blockquote * {
 
 figcaption {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 1.2rem;
   line-height: 16px;
   margin-top: 8px;
 }
@@ -180,6 +180,16 @@ select {
   display: none;
 }
 
+.o-layout {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.o-layout__item {
+  flex-basis: 100%;
+}
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
@@ -200,7 +210,7 @@ select {
 */
 .c-nav {
   position: fixed;
-  margin: 2em;
+  margin: 2rem;
   bottom: 50px;
   right: 50px;
   z-index: 1;
@@ -224,7 +234,7 @@ select {
   z-index: 1;
   width: 60px;
   height: 60px;
-  padding: 1.6em;
+  padding: 1.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -349,10 +359,19 @@ select {
 }
 
 .c-rocket-list {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  padding: 0 1.6rem;
 }
 
 .c-rocket-list__item {
+}
+
+.c-rocket-list__item + .c-rocket-list__item {
+  margin-top: 2rem;
+}
+
+.c-rocket__item--title {
+  font-size: 1.6rem;
 }
 
 /*
@@ -365,20 +384,38 @@ select {
 
 /* Small devices (landscape phones, 576px and up) */
 /* @Media (min-width: 576px) */
-@media screen and (min-width: 57.6rem) {
+@media screen and (min-width: 36rem) {
 }
 
 /* Medium devices (tablets, 768px and up) */
 /* @Media (min-width: 768px) */
-@media screen and (min-width: 76.8rem) {
+@media screen and (min-width: 48rem) {
+  .c-nav {
+    margin: 1rem;
+    top: 0;
+    bottom: 0;
+    right: 50px;
+  }
+
+  .u-1-of-2-bp2 {
+    flex-basis: calc(100% / 2);
+  }
+
+  .c-rocket-list__item + .c-rocket-list__item {
+    margin-top: 0rem;
+  }
+
+  .c-rocket__item--info {
+    text-align: center;
+  }
 }
 
 /* Large devices (landscape tablets, desktops, 992px and up) */
 /* @Media (min-width: 992px) */
-@media screen and (min-width: 99.2rem) {
+@media screen and (min-width: 62rem) {
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 /* @Media (min-width: 1200px) */
-@media screen and (min-width: 120rem) {
+@media screen and (min-width: 75rem) {
 }
