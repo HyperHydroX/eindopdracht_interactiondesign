@@ -8,7 +8,7 @@
 
 :root {
   /* Colors */
-  --global-background-color: #ffffff;
+  --global-background-color: linear-gradient(25deg, #09203f 25%, #537895 100%);
   /* Whitespace */
   --global-baseline: 16px;
 
@@ -26,6 +26,12 @@ html {
   font-family: "Orbitron", Helvetica, arial, sans-serif;
   box-sizing: inherit;
   display: flex;
+  background: linear-gradient(
+    65.5deg,
+    rgba(23, 205, 205, 1) -15.1%,
+    rgba(23, 25, 95, 1) 71.5%
+  );
+  background-repeat: inherit;
   align-items: center;
   justify-content: center;
 }
@@ -216,6 +222,10 @@ select {
   z-index: 1;
 }
 
+.c-nav__icon {
+  max-height: 64px;
+}
+
 .c-nav .c-menu--toggler {
   position: absolute;
   top: 0;
@@ -345,7 +355,7 @@ select {
 */
 
 .c-rocket {
-  height: 100vh;
+  margin: 0 auto;
 }
 
 .c-title {
@@ -353,7 +363,7 @@ select {
 }
 
 .c-rocket__image {
-  max-height: 400px;
+  max-height: 80%;
   max-width: 400px;
   margin-bottom: 24px;
 }

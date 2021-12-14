@@ -2,6 +2,30 @@
     const get_api_data = (url) => fetch(url).then((r) => r.json());
     let rocket_type = 3;
 
+    const animate_icon = () => {
+      //Animate rocket icon 
+      let tl = gsap.timeline({
+        defaults: {
+          duration: 1,
+          ease: 'power1.inOut',
+        },
+        repeat: -1,
+        yoyoEase: 'Power2.easeOut',
+        yoyo: true,
+      })
+
+      tl.fromTo('#falcon_1', {
+        y: 2.5, 
+      }, {
+        y: -2.5,
+      })
+      .to('#combustion', {
+        scaleY: 1.3,
+      }, 
+        '<',
+      );
+    };
+
     const show_rocket_menu = (api_data) => {
         const $menu = document.querySelector(".js-menu");
         console.log($menu);
@@ -40,7 +64,8 @@
         // });
 
         //Images
-        $rocket_image.src = api_data[rocket_type].flickr_images[0];
+        
+        $rocket_image.src = api_data[rocket_type].flickr_images[1];
         $rocket_image.alt = `${api_data[rocket_type].name} rocket image` ;
         
         //Rocket data
@@ -157,7 +182,7 @@
 
     const innit = () => {
         get_api();
-        
+        animate_icon();
         // show_rocket(get_api())
     };
         
