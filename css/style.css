@@ -223,7 +223,7 @@ select {
 }
 
 .c-nav__icon {
-  max-height: 64px;
+  max-height: 86px;
 }
 
 .c-nav .c-menu--toggler {
@@ -405,6 +405,10 @@ select {
     top: 0;
     bottom: 0;
     right: 50px;
+  }
+
+  .c-nav__icon {
+    max-height: 48px;
   }
 
   .u-1-of-2-bp2 {

@@ -2,19 +2,75 @@
     const get_api_data = (url) => fetch(url).then((r) => r.json());
     let rocket_type = 3;
 
-    const animate_icon = () => {
-      //Animate rocket icon 
-      let tl = gsap.timeline({
-        defaults: {
-          duration: 1,
-          ease: 'power1.inOut',
-        },
-        repeat: -1,
-        yoyoEase: 'Power2.easeOut',
+    //Gsap animation timelines
+    let tl_shake = gsap.timeline ({
+      defaults: {
+        repeat: 3,
         yoyo: true,
-      })
+        ease: 'Sine.easeInOut',
+      },
+      repeat: 0,
+      paused: true,
+    });
 
-      tl.fromTo('#falcon_1', {
+    let tl_hover = gsap.timeline({
+      defaults: {
+        duration: 1,
+        ease: 'power1.inOut',
+      },
+      repeat: -1,
+      yoyoEase: 'Power2.easeOut',
+      yoyo: true,
+    });
+
+    let tl_launch = gsap.timeline({
+      defaults: {
+        duration: 1,
+        ease: 'Sine.easeInOut',
+      },
+      repeat: 0,
+      paused: true,
+    });
+
+    const rocket_launch_listener = (status) => {
+        if(status == true) {
+          tl_launch.play();
+          tl_shake.pause();
+          tl_hover.pause();
+        } else {
+          console.log("reverse");
+          tl_launch.reverse();
+          tl_shake.resume();
+          tl_hover.resume();
+        }
+    };
+
+    const animate_icon = () => {
+      const $checkbox = document.querySelector(".c-menu--toggler");
+
+      $checkbox.addEventListener("mouseenter", () => {
+        tl_shake.play();
+        // tl_hover.pause();
+      }); 
+
+      $checkbox.addEventListener("mouseleave", () => {
+        tl_shake.reverse();
+        // tl_hover.resume();
+      });
+
+      $checkbox.addEventListener("change", () => {
+        console.log($checkbox.checked);
+        rocket_launch_listener($checkbox.checked);
+      });
+
+      //Animate rocket icon 
+      tl_shake.fromTo('#falcon_1', 0.15, {
+          x: 0, 
+        }, {
+          x: 2.5,
+        });
+
+      tl_hover.fromTo('#falcon_1', {
         y: 2.5, 
       }, {
         y: -2.5,
@@ -24,6 +80,11 @@
       }, 
         '<',
       );
+
+      tl_launch.to('#falcon_1', {
+        y: -1000,
+      });
+
     };
 
     const show_rocket_menu = (api_data) => {
@@ -143,8 +204,8 @@
 
     const rocket_type_listener = () => {
         const item_links = document.querySelectorAll(".js-link");
-        const checkbox = document.querySelector(".c-menu--toggler")
-        console.log(item_links)
+        const $checkbox = document.querySelector(".c-menu--toggler");
+        console.log(item_links);
         item_links.forEach($item_link  => {
             $item_link.addEventListener("click", () => {
                 if($item_link.textContent == "Falcon 1") {
@@ -162,7 +223,8 @@
                 }
                 get_api();
                 
-                checkbox.checked = false;
+                $checkbox.checked = false;
+                rocket_launch_listener($checkbox.checked);
             });
         })
         
