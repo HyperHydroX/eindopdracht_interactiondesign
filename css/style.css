@@ -304,7 +304,7 @@ select {
 }
 
 .c-nav .c-menu--toggler:checked:hover+.c-hamburger>.c-nav__icon--close {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .c-nav .c-menu--toggler:focus+.c-hamburger>.c-nav__icon--close {
