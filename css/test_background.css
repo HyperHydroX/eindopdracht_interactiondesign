@@ -1,0 +1,30 @@
+@mixin translate_50 {
+  -webkit-transform: translate(-50, -50%);
+  -ms-transform: translate(-50, -50%);
+  -o-transform: translate(-50, -50%);
+  transform: translate(-50, -50%);
+}
+
+body {
+  overflow: hidden;
+}
+
+.c-background {
+  height: 200vh;
+  width: 200%;
+  background-color: radial-gradient(
+    ellipse at bottom,
+    #1b2735 0%,
+    #191f24 100%
+  );
+  overflow: hidden;
+  @include translate_50;
+}
+
+.c-start--small {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  /* box-shadow: $stars_small;
+  animation: anime; */
+}
