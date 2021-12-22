@@ -24,6 +24,7 @@
 
   /* Tranistions */
   --global-transition: 0.3s ease;
+  --global-transition-animation: all 0.4s ease;
 }
 
 /*
@@ -239,7 +240,7 @@ select {
   visibility: hidden;
   fill: var(--global-color-white);
   opacity: 0;
-  transition: all 0.4s ease !important;
+  transition: var(--global-transition-animation) !important;
 }
 
 .c-nav .c-menu--toggler {
@@ -275,7 +276,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s ease;
+  transition: var(--global-transition-animation);
 }
 
 .c-nav .c-hamburger>span::before,
@@ -354,7 +355,7 @@ select {
   align-items: center;
   justify-content: center;
   transform: scale(0);
-  transition: all 0.4s ease;
+  transition: var(--global-transition-animation);
 }
 
 .c-nav .c-menu>div>div {
@@ -375,12 +376,7 @@ select {
 .c-menu__item--link {
   color: inherit;
   text-decoration: none;
-  transition: all 0.4s ease;
-}
-
-.c-menu__item--link:focus {
-  border-bottom: 1px solid var(--global-color-white);
-  border-radius: 5%;
+  transition: var(--global-transition-animation);
 }
 
 .c-menu--toggler:focus-visible+.c-hamburger>.c-nav__icon {
