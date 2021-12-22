@@ -11,7 +11,8 @@
   /* --global-color-background: linear-gradient(25deg, #09203f 25%, #537895 100%);  */
   --global-color-background: radial-gradient(circle at center, #204968 25%, #09203f 75%);
   --global-color-white: #FFFFFF;
-  --global-color-purple: mediumslateblue;
+  --global-color-grey: #a8a9ad
+;
 
   /* Baseline */
   --global-baseline: 8px;
@@ -52,7 +53,7 @@ html {
 }
 
 ::selection {
-  background: var(--global-color-purple);
+  background: var(--global-color-grey);
   color: var(--global-color-white);
   text-shadow: none;
 }
@@ -156,7 +157,7 @@ hr {
 a {
   transition: all 0.1s;
   color: var(--global-color-white);
-  outline-color: var(--global-color-purple);
+  outline-color: var(--global-color-grey);
   outline-width: medium;
   outline-offset: 2px;
   text-decoration: none;
@@ -169,7 +170,7 @@ a:active {
 
 a:hover,
 a:focus {
-  color: slateblue;
+  color: var(--global-color-grey);
 }
 
 label,
@@ -241,6 +242,8 @@ select {
   fill: var(--global-color-white);
   opacity: 0;
   transition: var(--global-transition-animation) !important;
+  height: 48px;
+  width: 48px;
 }
 
 .c-nav .c-menu--toggler {
@@ -309,7 +312,7 @@ select {
 }
 
 .c-nav .c-menu--toggler:focus+.c-hamburger>.c-nav__icon--close {
-  fill: var(--global-color-purple);
+  fill: var(--global-color-grey);
 }
 
 .c-nav .c-menu--toggler:checked~.c-menu {
